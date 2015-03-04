@@ -29,7 +29,7 @@ private
       errors.add(:password, "must contain one special character (!, @, #, $, &, %, ^)")
     end
 
-    unless (6..100).cover?(password.length)
+    unless (6..100).cover?(password.to_s.length)
       errors.add(:password, "must be at least 6 characters long")
     end
   end
