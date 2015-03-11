@@ -17,10 +17,8 @@ class SessionController < ApplicationController
   end
 
   def destroy
-    if @current_user
-      
-    else
-      redirect_to signin_path
-    end
+    logout_user
+
+    redirect_to signin_path
   end
 end
