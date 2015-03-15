@@ -10,7 +10,7 @@ class SessionController < ApplicationController
       login_as(@user)
       redirect_to projects_path
     else
-      flash.now[:notice] = "Email or password is incorrect"
+      flash.now[:error] = "Email or password is incorrect"
       @user = User.new
       render "new"
     end

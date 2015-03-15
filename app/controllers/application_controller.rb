@@ -19,4 +19,9 @@ class ApplicationController < ActionController::Base
     session.delete(:user_id)
     @current_user = nil
   end
+
+  def authenticate_user!
+    return if current_user
+    redirect_to signin_path
+  end
 end

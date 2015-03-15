@@ -1,4 +1,5 @@
-.new_user {
+.new_user,
+.edit_user {
   @include span-columns(4 of 12);
   @include shift(4 of 12);
   @include border-radius($base-border-radius);

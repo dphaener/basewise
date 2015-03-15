@@ -1,4 +1,6 @@
 .top-nav {
+  @include clearfix;
+
   nav {
     @include span-columns(12 of 12);
 

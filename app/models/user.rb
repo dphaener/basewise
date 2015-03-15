@@ -2,6 +2,8 @@ class User < ActiveRecord::Base
   NAME_REGEX = /\A[a-zA-Z\-\!\@]+\z/
   EMAIL_REGEX = /\A[A-Za-z0-9._%+-]+@[A-Za-z0-9.-]+\.[A-Za-z]+\z/
 
+  has_many :projects
+
   validates :first_name, format: { with: NAME_REGEX }, length: (2..100)
   validates :last_name, format: { with: NAME_REGEX }, length: (1..100)
   validates :email, format: { with: EMAIL_REGEX }, uniqueness: true

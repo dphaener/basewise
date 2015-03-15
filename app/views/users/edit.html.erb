@@ -1,0 +1,9 @@
+<% content_for :title, user_name(current_user) %>
+
+<%= simple_form_for @user do |f| %>
+  <%= f.input :email, error_prefix: "Email" %>
+  <%= f.input :first_name, error_prefix: "First name" %>
+  <%= f.input :last_name, error_prefix: "Last name" %>
+  <%= f.input :password, error_prefix: "Password" %>
+  <%= f.submit %>
+<% end %>
