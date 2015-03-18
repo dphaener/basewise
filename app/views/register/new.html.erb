@@ -1,0 +1,10 @@
+<% content_for :title, "Register for Basewise" %>
+
+<%= simple_form_for @user, url: new_registration_path do |f| %>
+  <%= f.input :email, placeholder: "Email address", error_prefix: "Email" %>
+  <%= f.input :first_name, placeholder: "First name", error_prefix: "First Name" %>
+  <%= f.input :last_name, placeholder: "Last name", error_prefix: "Last Name" %>
+  <%= f.input :password, placeholder: "Password", error_prefix: "Password" %>
+
+  <%= f.submit %>
+<% end %>
