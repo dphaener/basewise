@@ -23,3 +23,39 @@
     }
   }
 }
+
+.sub-nav {
+  @include clearfix;
+  background-color: $base-background-color;
+
+  nav {
+    @include span-columns(7 of 12);
+    @include shift(2.5 of 12);
+
+    background-color: $base-background-color;
+    padding: 20px 10px;
+
+    h3 {
+      display: inline-block;
+      font-size: $base-font-size * 1.3;
+      color: $dark-gray;
+    }
+
+    ul {
+      display: inline-block;
+      margin-left: 10px;
+
+      li {
+
+        a {
+          color: $medium-gray;
+
+          &:hover {
+            color: $dark-gray;
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+  }
+}

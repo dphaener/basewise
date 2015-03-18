@@ -1,6 +1,6 @@
 <div class="projects-container">
   <div class="projects-sidebar">
-    <%= link_to "#" do %>
+    <%= link_to new_project_path do %>
       <span>New Project</span>
     <% end %>
   </div>
@@ -8,9 +8,11 @@
   <ol class="projects-list">
     <% @projects.each do |project| %>
       <li>
-        <span class="title"><%= project.title %></span>
-        <span class="description"><%= project.description %></span>
-        <span class="updated">Last updated on <%= project.updated_at.strftime("%b %e") %></span>
+        <%= link_to project_path(project) do %>
+          <span class="title"><%= project.title %></span>
+          <span class="description"><%= project.description %></span>
+          <span class="updated">Last updated on <%= project.updated_at.strftime("%b %e") %></span>
+        <% end %>
       </li>
     <% end %>
   </ol>
