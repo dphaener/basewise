@@ -5,6 +5,18 @@
   background-color: $white;
 }
 
+span.title {
+  color: $dark-gray;
+  font-size: $base-font-size * 1.4;
+  font-weight: 700;
+  display: block;
+}
+
+span.description {
+  color: darken($base-background-color, 30);
+  display: block;
+}
+
 .projects-container {
   @include span-columns(8 of 12);
   @include shift(2 of 12);
@@ -47,6 +59,9 @@
 
     li {
       @extend .white-box;
+      @extend span.title;
+      @extend span.description;
+
       @include span-columns(2.32 of 7);
       @include omega(3n);
 
@@ -54,22 +69,23 @@
       margin-top: 30px;
       padding: 10px;
 
-      span.title {
-        font-size: $base-font-size * 1.4;
-        font-weight: 700;
-        display: block;
-      }
-
-      span.description {
-        color: darken($base-background-color, 30);
-        display: block;
-      }
-
       span.updated {
         color: darken($base-background-color, 30);
         font-size: $base-font-size * 0.8;
       }
     }
   }
+}
+
+div.project {
+  @extend .white-box;
+  @extend span.title;
+  @extend span.description;
+
+  @include span-columns(6 of 12);
+  @include shift(3 of 12);
+
+  margin-top: 50px;
+  padding: 15px;
 }
 
