@@ -9,16 +9,18 @@
   <br/><br/>
 
   <div class="todo-lists" data-component="todo-list">
-    <h3>Todo-Lists</h3>
-    <%= button_tag "New Todo List", data: { action: "new-todo" } %>
+    <h3 class="inline">Todo-Lists</h3>&nbsp;&nbsp;
+    <%= button_tag "New Todo List", data: { action: "new-todo" }, class: "small inline" %>
 
     <div class="new-todo hide" data-container="new-todo">
       <br/>
-      <input type="text" name="title" placeholder="Title" data-attribute="title"/>
-      <input type="text" name="description" placeholder="Description" data-attribute="description"/>
-      <%= button_tag "Create Todo", data: { action: "create-todo" } %>
-      <%= button_tag "Cancel", data: { action: "cancel" }, class: "red" %>
+      <input type="text" name="title" class="slim" placeholder="Title" data-attribute="title"/>
+      <input type="text" name="description" class="slim" placeholder="Description" data-attribute="description"/>
+      <%= button_tag "Create Todo", data: { action: "create-todo" }, class: "small" %>
+      <%= button_tag "Cancel", data: { action: "cancel" }, class: "red small" %>
     </div>
+
+    <br/><br/>
 
     <div data-container="todo-lists">
       <%= render "todo_lists/list", project: @project %>

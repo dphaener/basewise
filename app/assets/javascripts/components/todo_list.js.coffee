@@ -14,8 +14,12 @@ $ ->
         title: @select("titleSelector").val()
         description: @select("descriptionSelector").val()
 
+      @clearForm = ->
+        @select("titleSelector").val(null)
+        @select("descriptionSelector").val(null)
+
       @showNewTodo = (ev, data) ->
-        @select("todoContainer").show()
+        @select("todoContainer").toggle()
 
       @hideNewTodo = (ev, data) ->
         @select("todoContainer").hide()
@@ -24,6 +28,8 @@ $ ->
         @trigger("uiTodoListCreationRequested", @serializeForm())
 
       @handleTodoCreated = (ev, data) ->
+        @clearForm()
+        @hideNewTodo()
         @select("todoListContainer").html(data.todo_list_html)
 
       @after "initialize", ->

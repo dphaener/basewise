@@ -11,7 +11,9 @@ Rails.application.routes.draw do
   # Projects
   resources :projects do
     # Todo Lists
-    resources :todo_lists, only: [:create, :update, :destroy, :show]
+    resources :todo_lists, only: [:create, :update, :destroy, :show] do
+      resources :todos, only: [:create, :update, :destroy]
+    end
   end
 
   # Users

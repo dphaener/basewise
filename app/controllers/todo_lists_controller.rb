@@ -15,7 +15,9 @@ class TodoListsController < ApplicationController
   end
 
   def destroy
-    
+    @todo_list = @project.todo_lists.find(params[:id])
+    @todo_list.destroy
+    redirect_to project_path(@project)
   end
 
 private

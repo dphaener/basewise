@@ -1,3 +1,11 @@
-<% project.todo_lists.each do |todo_list| %>
-  <h3><%= todo_list.title %></h3><br />
-<% end %>
+<ul class="todo-list-list">
+  <% project.todo_lists.each do |todo_list| %>
+    <li>
+      <h3 class="inline"><%= todo_list.title %></h3>
+      <%= link_to "Delete", project_todo_list_path(@project, todo_list), method: :delete, class: "inline" %>
+      <h4><%= todo_list.description %></h4>
+    </li>
+  <% end %>
+</ul>
+
+

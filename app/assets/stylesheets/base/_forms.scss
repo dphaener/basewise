@@ -50,6 +50,14 @@ textarea {
     box-shadow: $form-box-shadow-focus;
     outline: none;
   }
+
+  &.slim {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    border-radius: 0;
+    box-shadow: none;
+  }
 }
 
 textarea {
