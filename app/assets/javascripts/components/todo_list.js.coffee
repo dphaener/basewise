@@ -8,6 +8,11 @@ $ ->
         titleSelector: "[data-attribute='title']"
         descriptionSelector: "[data-attribute='description']"
         todoContainer: "[data-container='new-todo']"
+        todoListContainer: "[data-container='todo-lists']"
+
+      @serializeForm = ->
+        title: @select("titleSelector").val()
+        description: @select("descriptionSelector").val()
 
       @showNewTodo = (ev, data) ->
         @select("todoContainer").show()
@@ -15,11 +20,20 @@ $ ->
       @hideNewTodo = (ev, data) ->
         @select("todoContainer").hide()
 
+      @handleCreateTodo = (ev, data) ->
+        @trigger("uiTodoListCreationRequested", @serializeForm())
+
+      @handleTodoCreated = (ev, data) ->
+        @select("todoListContainer").html(data.todo_list_html)
+
       @after "initialize", ->
 
         @on "click",
           newTodoSelector: @showNewTodo
           cancelSelector: @hideNewTodo
+          createTodoSelector: @handleCreateTodo
+
+        @on document, "dataTodoListCreated", @handleTodoCreated
   )
 
   TodoListUI.attachTo("[data-component='todo-list']")

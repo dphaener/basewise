@@ -6,8 +6,8 @@ $ ->
           method: "POST"
           contentType: "application/json; charset=utf-8"
           dataType: "json"
-          url: "todo_lists"
-          data: JSON.stringify(todo_list: data)
+          url: "/projects/#{context.project_id}/todo_lists"
+          data: JSON.stringify({ todo_list: data })
 
         jqxhr.done (data) =>
           if data.success

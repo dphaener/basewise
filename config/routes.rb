@@ -9,11 +9,11 @@ Rails.application.routes.draw do
   post "register" => "register#create", as: "new_registration"
 
   # Projects
-  resources :projects
+  resources :projects do
+    # Todo Lists
+    resources :todo_lists, only: [:create, :update, :destroy, :show]
+  end
 
   # Users
   resources :users, only: [:edit, :update, :destroy]
-
-  # Todo Lists
-  resources :todo_lists, only: [:create, :update, :destroy, :show]
 end

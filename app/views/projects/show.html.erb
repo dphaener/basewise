@@ -1,4 +1,7 @@
 <% content_for :title, @project.title %>
+<script>
+  context["project_id"] = <%= @project.id %>;
+</script>
 
 <div class="project">
   <span class="title"><%= @project.title %></span>
@@ -15,6 +18,10 @@
       <input type="text" name="description" placeholder="Description" data-attribute="description"/>
       <%= button_tag "Create Todo", data: { action: "create-todo" } %>
       <%= button_tag "Cancel", data: { action: "cancel" }, class: "red" %>
+    </div>
+
+    <div data-container="todo-lists">
+      <%= render "todo_lists/list", project: @project %>
     </div>
   </div>
 </div>

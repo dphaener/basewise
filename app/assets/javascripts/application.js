@@ -15,3 +15,5 @@
 //= require flight-for-rails
 //= require_directory ./components
 //= require_tree .
+
+var context = {}
