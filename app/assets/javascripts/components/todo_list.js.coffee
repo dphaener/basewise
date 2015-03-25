@@ -3,12 +3,20 @@ $ ->
     ->
       @defaultAttrs
         newTodoSelector: "[data-action='new-todo']"
+        newTodoListSelector: "[data-action='new-todo-list']"
         createTodoSelector: "[data-action='create-todo']"
+        createTodoListSelector: "[data-action='create-todo-list']"
         cancelSelector: "[data-action='cancel']"
         titleSelector: "[data-attribute='title']"
         descriptionSelector: "[data-attribute='description']"
-        todoContainer: "[data-container='new-todo']"
+        todoContainer: "[data-container='new-todo-list']"
         todoListContainer: "[data-container='todo-lists']"
+        newTodoContainer: "[data-container='new-todo']"
+        itemSelector: "[data-item]"
+
+      #######################
+      # Todo List Section   #
+      #######################
 
       @serializeForm = ->
         title: @select("titleSelector").val()
@@ -18,28 +26,39 @@ $ ->
         @select("titleSelector").val(null)
         @select("descriptionSelector").val(null)
 
-      @showNewTodo = (ev, data) ->
+      @showNewTodoList = (ev, data) ->
         @select("todoContainer").toggle()
 
-      @hideNewTodo = (ev, data) ->
+      @hideNewTodoList = (ev, data) ->
         @select("todoContainer").hide()
 
-      @handleCreateTodo = (ev, data) ->
+      @handleCreateTodoList = (ev, data) ->
         @trigger("uiTodoListCreationRequested", @serializeForm())
 
-      @handleTodoCreated = (ev, data) ->
+      @handleTodoListCreated = (ev, data) ->
         @clearForm()
-        @hideNewTodo()
+        @hideNewTodoList()
         @select("todoListContainer").html(data.todo_list_html)
+
+      #######################
+      # Todo Section        #
+      #######################
+
+      @showNewTodo = (ev, data) ->
+        $el = $(data.el)
+        $parent = $el.parents("li")
+        $parent.find(@attr.newTodoContainer).toggle()
 
       @after "initialize", ->
 
         @on "click",
+          newTodoListSelector: @showNewTodoList
+          cancelSelector: @hideNewTodoList
+          createTodoListSelector: @handleCreateTodoList
           newTodoSelector: @showNewTodo
-          cancelSelector: @hideNewTodo
-          createTodoSelector: @handleCreateTodo
 
-        @on document, "dataTodoListCreated", @handleTodoCreated
+
+        @on document, "dataTodoListCreated", @handleTodoListCreated
   )
 
   TodoListUI.attachTo("[data-component='todo-list']")

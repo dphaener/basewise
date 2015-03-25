@@ -10,9 +10,9 @@
 
   <div class="todo-lists" data-component="todo-list">
     <h3 class="inline">Todo-Lists</h3>&nbsp;&nbsp;
-    <%= button_tag "New Todo List", data: { action: "new-todo" }, class: "small inline" %>
+    <%= button_tag "New Todo List", data: { action: "new-todo-list" }, class: "small inline" %>
 
-    <div class="new-todo hide" data-container="new-todo">
+    <div class="new-todo hide" data-container="new-todo-list">
       <br/>
       <input type="text" name="title" class="slim" placeholder="Title" data-attribute="title"/>
       <input type="text" name="description" class="slim" placeholder="Description" data-attribute="description"/>

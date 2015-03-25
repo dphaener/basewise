@@ -1,9 +1,17 @@
 <ul class="todo-list-list">
   <% project.todo_lists.each do |todo_list| %>
-    <li>
+    <li data-todo-list-id="<%= todo_list.id %>" data-item>
       <h3 class="inline"><%= todo_list.title %></h3>
       <%= link_to "Delete", project_todo_list_path(@project, todo_list), method: :delete, class: "inline" %>
       <h4><%= todo_list.description %></h4>
+      <%= render "todos/list", todos: todo_list.todos %>
+      <%= link_to "Add a to-do", "#", data: { action: "new-todo" } %>
+
+      <div class="new-todo hide" data-container="new-todo">
+        <input type="text" data-attribute="todo-title" placeholder="Add new todo"/>
+        <%= button_tag "Add todo", class: "small inline", data: { action: "create-todo" } %>
+        <%= button_tag "Cancel", class: "small inline red", data: { action: "cancel-create-todo" } %>
+      </div>
     </li>
   <% end %>
 </ul>

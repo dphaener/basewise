@@ -1,0 +1,8 @@
+<ul>
+  <% todos.each do |todo| %>
+    <li data-todo-id="<%= todo.id %>">
+      <%= check_box_tag :complete, todo.complete, true %>
+      <%= label_tag :complete, todo.title %>
+    </li>
+  <% end %>
+</ul>
