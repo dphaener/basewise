@@ -71,7 +71,7 @@ span.description {
 
       span.updated {
         color: darken($base-background-color, 30);
-        font-size: $base-font-size * 0.8;
+        font-size: $base-font-size * 0.6;
       }
     }
   }
@@ -86,17 +86,21 @@ div.project {
   @include shift(3 of 12);
 
   padding: 15px;
+  margin-bottom: 100px;
 }
 
 ul.todo-list-list {
+  margin-left: 15px;
+
   li {
     h3 {
-      color: darken($base-background-color, 45);
+      color: darken($base-background-color, 35);
+      font-size: $base-font-size * 0.8;
     }
 
     h4 {
-      font-size: $base-font-size * 0.8;
-      color: $medium-gray;
+      font-size: $base-font-size * 0.6;
+      color: lighten($medium-gray, 10);
     }
 
     a {
@@ -118,5 +122,16 @@ div.new-todo {
     font-size: $base-font-size * 0.7;
     background-color: #fff;
     border: solid 1px $medium-gray;
+  }
+}
+
+li.todo {
+  margin-left: 15px;
+
+  label {
+    font-weight: 300;
+    display: inline-block;
+    font-size: $base-font-size * 0.7;
+    color: $medium-gray;
   }
 }

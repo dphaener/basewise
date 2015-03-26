@@ -1,7 +1,7 @@
 <% content_for :title, "New Project" %>
 
-<%= simple_form_for @project do |f| %>
+<%= simple_form_for @builder, url: projects_path do |f| %>
   <%= f.input :title, error_prefix: "Title" %>
   <%= f.input :description, error_prefix: "Description" %>
-  <%= f.submit %>
+  <%= f.submit "Create Project" %>
 <% end %>

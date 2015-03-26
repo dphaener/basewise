@@ -15,6 +15,7 @@ gem 'bourbon'
 gem 'neat'
 gem 'simple_form'
 gem 'flight-for-rails', '~> 1.5.0'
+gem 'virtus'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

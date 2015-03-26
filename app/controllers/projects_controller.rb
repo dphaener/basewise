@@ -6,14 +6,14 @@ class ProjectsController < ApplicationController
   end
 
   def new
-    @project = current_user.projects.new
+    @builder = ProjectBuilder.new(current_user)
   end
 
   def create
-    @project = current_user.projects.new(project_params)
+    @builder = ProjectBuilder.new(current_user, project_params)
 
-    if @project.save
-      redirect_to project_path(@project)
+    if @builder.build
+      redirect_to project_path(@builder.project)
     else
       render "new"
     end
@@ -26,6 +26,6 @@ class ProjectsController < ApplicationController
 private
 
   def project_params
-    params.require(:project).permit(:title, :description)
+    params.require(:project_builder).permit(:title, :description)
   end
 end

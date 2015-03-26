@@ -1,4 +1,5 @@
 .main-content {
+  @include clearfix;
   background-color: $base-background-color;
   min-height: 750px;
 }

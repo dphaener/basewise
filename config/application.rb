@@ -23,6 +23,12 @@ module Basewise
     # Do not swallow errors in after_commit/after_rollback callbacks.
     config.active_record.raise_in_transactional_callbacks = true
 
+    # Custom directories with classes and modules you want to be autoloadable.
+    config.autoload_paths += %W(
+      #{config.root}/app/services
+      #{config.root}/app/services/concerns
+    )
+
     config.app_generators do |g|
       g.test_framework      :test_unit, fixture_replacement: :fabrication
       g.fixture_replacement :fabrication, dir: "test/fabricators"

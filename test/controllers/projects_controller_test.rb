@@ -30,7 +30,7 @@ class ProjectsControllerTest < ActionController::TestCase
     should render_template(:new)
 
     should "assign to project" do
-      assert_not_nil assigns(:project)
+      assert_not_nil assigns(:builder)
     end
   end
 
@@ -42,7 +42,7 @@ class ProjectsControllerTest < ActionController::TestCase
     context "with valid params" do
       setup do
         @valid_params = {
-          project: {
+          project_builder: {
             title: "Valid title",
             description: "Description"
           }
@@ -63,7 +63,7 @@ class ProjectsControllerTest < ActionController::TestCase
     context "with invalid params" do
       setup do
         @invalid_params = {
-          project: {
+          project_builder: {
             title: "foo",
             description: "Description"
           }
