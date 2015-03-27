@@ -1,6 +1,6 @@
 <nav>
   <ul class="left">
-    <li><%= brand_tag(current_user) %></li>
+    <li>Basewise<%= current_user.profile_link if current_user %></li>
   </ul>
 
   <ul class="right">

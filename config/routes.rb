@@ -18,4 +18,6 @@ Rails.application.routes.draw do
 
   # Users
   resources :users, only: [:edit, :update, :destroy]
+
+  root to: "projects#index"
 end

@@ -6,7 +6,10 @@ class ApplicationController < ActionController::Base
   helper_method :current_user
 
   def current_user
-    @current_user ||= User.find_by_id(session[:user_id])
+    @current_user ||= begin
+      user = User.find_by_id(session[:user_id])
+      UserDecorator.new(user) if user
+    end
   end
 
   def login_as(user)

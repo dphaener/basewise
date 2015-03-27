@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require flight-for-rails
+//= require_directory ./mixins
 //= require_directory ./components
 //= require_tree .
 

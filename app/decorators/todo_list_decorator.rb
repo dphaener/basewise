@@ -1,0 +1,4 @@
+class TodoListDecorator < ApplicationDecorator
+
+end
+

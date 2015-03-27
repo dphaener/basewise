@@ -1,16 +1,5 @@
 module ApplicationHelper
-  def brand_tag(user)
-    [].tap do |ary|
-      ary << "Basewise"
-      ary << ": " if user
-      ary << link_to(user_name(user), edit_user_path(user)) if user
-    end.join("").html_safe
-  end
 
-  def user_name(user)
-    return nil unless user
-    "#{user.first_name.capitalize} #{user.last_name.capitalize}"
-  end
 
   def session_links(user)
     if user

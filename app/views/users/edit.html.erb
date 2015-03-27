@@ -1,4 +1,4 @@
-<% content_for :title, user_name(current_user) %>
+<% content_for :title, current_user.name %>
 
 <%= simple_form_for @user do |f| %>
   <%= f.input :email, error_prefix: "Email" %>

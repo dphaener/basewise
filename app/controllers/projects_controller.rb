@@ -28,4 +28,11 @@ private
   def project_params
     params.require(:project_builder).permit(:title, :description)
   end
+
+  def p_params
+    {
+      title: params[:project_builder][:title],
+      description: params[:project_builder][:description]
+    }
+  end
 end

@@ -27,6 +27,7 @@ module Basewise
     config.autoload_paths += %W(
       #{config.root}/app/services
       #{config.root}/app/services/concerns
+      #{config.root}/app/decorators
     )
 
     config.app_generators do |g|
